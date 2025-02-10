@@ -1,0 +1,21 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+
+  <view class="back-btn" bindtap="goBack">←返回</view>
+   
+  <view class="header">
+    <uni-icons type="search" size="30"></uni-icons>
+    <input class="search-box" bindinput="onSearchInput" placeholder="搜索药方" />
+  </view>
+
+<!-- 搜索结果 -->
+<view class="herb-list">
+  <block wx:for="{{filteredHerbList}}" wx:key="id">
+    <view class="herb-item" bindtap="goToHerbDetail" data-id="{{item.id}}">
+      <image class="herb-img" src="{{item.img}}" mode="aspectFill"></image>
+      <text class="herb-name">{{item.name}}</text>
+    </view>
+  </block>
+</view>
+
+</view>

@@ -1,0 +1,82 @@
+/* pages/search/search.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #89c79e;
+  overflow: hidden; /* 防止内容超出导致 swiper 变小 */
+}
+
+.back-btn {
+  position: absolute;
+  bottom: 30rpx;
+  left: 0rpx;
+  width: 100% !important;  /* 强制固定宽度 */
+  height: 30px !important; /* 强制设置高度 */
+  padding: 0;  /* 去掉 padding */
+  background-color: #519763;
+  color: white;
+  text-align: center;
+  border-radius: 10rpx;
+  font-size: 14px;
+  line-height: 50px;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 35rpx;
+  margin-left: 0;
+  box-sizing: border-box;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.header {
+  width: 90%; /* 让 header 占满整个屏幕宽度 */
+  display: flex; /* 使用 flex 让子元素自动填充 */
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* 避免 padding 影响宽度 */
+  box-sizing: border-box; /* 确保 padding 不会影响实际宽度 */
+}
+
+.search-box {
+  flex-grow: 1; /* 让按钮自动填充 header */
+  height: 40px;
+  font-size: 16px;
+  text-align: left; /* 让文本左对齐，模仿输入框 */
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 35px;
+  line-height: 40px;
+  color: #999;
+  margin: 0; /* 彻底去除多余的间距 */
+  display: flex;
+  align-items: center; /* 让文字垂直居中 */
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* 草药列表 */
+.herb-list {
+  margin-top: 0rpx; 
+  width: 100%;
+  background-color: #e8f0e9;
+}
+
+/* 单个草药项 */
+.herb-item {
+  background-color: #5a5c5f17;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20rpx 10rpx;
+}
+
+/* 草药图片 */
+.herb-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  margin-left: 20px;
+  margin-right: 40rpx;
+}

@@ -1,0 +1,150 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #89c79e;
+  overflow: hidden; /* 防止内容超出导致 swiper 变小 */
+}
+
+.header {
+  width: 90%; /* 让 header 占满整个屏幕宽度 */
+  display: flex; /* 使用 flex 让子元素自动填充 */
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* 避免 padding 影响宽度 */
+  box-sizing: border-box; /* 确保 padding 不会影响实际宽度 */
+}
+
+.search-box {
+  flex-grow: 1; /* 让按钮自动填充 header */
+  height: 40px;
+  font-size: 16px;
+  text-align: left; /* 让文本左对齐，模仿输入框 */
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 35px;
+  line-height: 40px;
+  color: #999;
+  margin: 0; /* 彻底去除多余的间距 */
+  display: flex;
+  align-items: center; /* 让文字垂直居中 */
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+swiper {
+  width: 100%;
+  height: 200px;
+  flex-shrink: 0; /* 防止被 flex 挤压 */
+}
+
+swiper-item {
+  width: 100%;
+  height: 200px;
+}
+
+.swiper-img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  display: block;
+}
+
+.category-tabs, .section-tabs {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 10px 0;
+}
+.tab {
+  padding: 10px;
+  font-size: 16px;
+}
+.active {
+  color: #007aff;
+  font-weight: bold;
+}
+.news-list {
+  width: 90%;
+  margin-top: 20px;
+}
+.news-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+                                                                        
+
+.news-time {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 按钮容器 */
+.section-buttons {
+  display: flex;
+  width: 100vw; /* 让按钮宽度沾满整个页面 */
+}
+
+.tab-btn {
+  flex: 1; /* 让两个按钮等宽 */
+  text-align: center;
+  padding: 15px 0;
+  font-size: 18px;
+  /* border: 1px solid black; */
+  background-color: rgb(181, 216, 185);
+}
+
+/* 让按钮之间没有间隙 */
+.tab-btn:first-child {
+  border-right: none;
+}
+
+
+/* 草药列表 */
+.herb-list {
+  margin-top: 0rpx; 
+  width: 100%;
+  background-color: #e8f0e9;
+}
+
+/* 单个草药项 */
+.herb-item {
+  background-color: #5a5c5f17;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20rpx 10rpx;
+}
+
+/* 草药图片 */
+.herb-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  margin-left: 20px;
+  margin-right: 40rpx;
+}
+
+/* 文字容器 */
+.herb-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* 文字样式 */
+.herb-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #000;
+  text-align: left;
+}
+
+/* 蓝色分割线 */
+.divider {
+  width: 100%;
+  height: 2rpx;
+  background-color: #666769;
+  margin: 5rpx 0;
+}

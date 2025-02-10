@@ -1,0 +1,17 @@
+<view class="herb-detail">
+  <view class="back-btn" bindtap="goBack">返回</view>
+
+  <!-- 草药图片 -->
+  <image class="herb-img" src="{{herbInfo.img}}" mode="aspectFill"></image>
+
+  <!-- 草药名称 -->
+  <text class="herb-title">{{herbInfo.name}}</text>
+
+  <!-- 分割线 -->
+  <view class="divider"></view>
+
+  <!-- 草药描述 -->
+  <view class="herb-desc">
+    <text>{{herbInfo.description}}</text>
+  </view>
+</view>

@@ -1,0 +1,72 @@
+/* 页面整体容器 */
+.page-container {
+  margin-top: 0px;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0rpx;
+  background-color: #89c79e;
+}
+
+/* 返回按钮 */
+ .back-button {
+  position: absolute;
+  top: 100rpx;
+  left: 30rpx;
+  padding: 10rpx 20rpx;
+  background-color: #007AFF;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  text-align: center;
+  z-index: 10;
+}
+
+/* 草药列表 */
+.herb-list {
+  padding-top: 100px;
+  margin-top: 0px; 
+  width: 100%;
+  background-color: #e8f0e9;
+}
+
+/* 单个草药项 */
+.herb-item {
+  background-color: #8a928d17;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20rpx 10rpx;
+}
+
+/* 草药图片 */
+.herb-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  margin-left: 20px;
+  margin-right: 40rpx;
+}
+
+/* 文字容器 */
+.herb-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* 文字样式 */
+.herb-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #000;
+  text-align: left;
+}
+
+/* 蓝色分割线 */
+.divider {
+  width: 100%;
+  height: 2rpx;
+  background-color: #3B82F6;
+  margin: 5rpx 0;
+}

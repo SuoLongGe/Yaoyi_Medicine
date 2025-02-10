@@ -1,0 +1,32 @@
+<view class="news-detail">
+  <!-- 返回按钮 -->
+  <button class="back-btn" bindtap="goBack">返回</button>
+
+  <!-- 新闻标题 -->
+  <view class="news-title">{{news.title}}</view>
+
+  <!-- 新闻大图 -->
+  <image class="news-image" src="{{news.imageUrl}}" mode="aspectFill"></image>
+
+  <!-- 分割线 -->
+  <view class="divider"></view>
+
+  <!-- 新闻内容 -->
+  <view class="news-content-wrapper">
+    <view class="news-card">
+      <view class="news-content">
+        <block wx:for="{{news.content}}" wx:key="index">
+          <!-- 如果是文本 -->
+          <view class="news-paragraph" wx:if="{{item.type === 'text'}}">
+            <text>{{item.value}}</text>
+          </view>
+
+          <!-- 如果是图片 -->
+          <view class="news-paragraph" wx:if="{{item.type === 'image'}}">
+            <image src="{{item.value}}" mode="aspectFill"></image>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

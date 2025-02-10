@@ -1,0 +1,15 @@
+/* pages/news/news.wxss */
+.news-list {
+  width: 100%;
+  margin-top: 115px;
+}
+.news-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+                                                                        
+
+.news-time {
+  font-size: 14px;
+  color: #666;
+}

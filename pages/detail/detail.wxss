@@ -1,0 +1,72 @@
+/* pages/detail/detail.wxss */
+/* 整体页面样式 */
+.news-detail {
+  width: 100%;
+  padding: 0px;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+/* 返回按钮 */
+.back-btn {
+  position: absolute;
+  bottom: 30rpx;
+  left: 0rpx;
+  width: 100% !important;  /* 强制固定宽度 */
+  height: 30px !important; /* 强制设置高度 */
+  padding: 0;  /* 去掉 padding */
+  background-color: #519763;
+  color: white;
+  text-align: center;
+  border-radius: 10rpx;
+  font-size: 14px;
+  line-height: 50px;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 35rpx;
+  margin-left: 0;
+  box-sizing: border-box;
+  line-height: 30px;
+}
+
+.news-title {
+  margin-top: 85px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.news-image {
+  width: 90%;
+  border-radius: 20rpx;     /* 圆角 */
+  display: block;           /* 设置为块级元素 */
+  margin-left: auto;        /* 左侧自动 */
+  margin-right: auto;       /* 右侧自动 */
+}
+
+.divider {
+  height: 1px;
+  background-color: #f0f0f0;
+  margin: 20rpx 0;
+}
+
+.news-content-wrapper {
+  padding-left: 10px;
+  padding-right: 8px;
+}
+
+.news-card {
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 0rpx;
+}
+
+.news-paragraph {
+  margin-bottom: 20rpx;
+}
+
+text {
+  font-size: 16px;
+  line-height: 1.6;
+}
