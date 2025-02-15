@@ -21,6 +21,8 @@
     "tabIndent": "auto",
     "tabSize": 2
   },
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "cloudfunctionRoot": "cloud/",
   "packOptions": {
     "ignore": [],
     "include": []

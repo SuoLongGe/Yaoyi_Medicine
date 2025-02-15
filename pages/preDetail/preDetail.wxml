@@ -1,5 +1,5 @@
 <view class="herb-detail">
-  <view class="back-btn" bindtap="goBack">返回</view>
+  <button class="back-btn" bindtap="goBack">返回</button>
 
   <!-- 草药图片 -->
   <image class="herb-img" src="{{herbInfo.img}}" mode="aspectFill"></image>

@@ -1,9 +1,11 @@
 .container {
   display: flex;
   flex-direction: column;
+  flex: 1;  /* 确保容器占据所有可用空间 */
   align-items: center;
   background-color: #89c79e;
   overflow: hidden; /* 防止内容超出导致 swiper 变小 */
+  overflow-y: scroll;
 }
 
 .header {
@@ -106,6 +108,8 @@ swiper-item {
   margin-top: 0rpx; 
   width: 100%;
   background-color: #e8f0e9;
+  overflow-y: auto;  /* 让新闻列表支持垂直滚动 */
+  flex: 1;  /* 使新闻列表填充剩余空间 */
 }
 
 /* 单个草药项 */

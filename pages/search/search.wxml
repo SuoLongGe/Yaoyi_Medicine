@@ -1,7 +1,7 @@
 <!--pages/search/search.wxml-->
 <view class="container">
 
-  <view class="back-btn" bindtap="goBack">←返回</view>
+  <view class="back-btn" bindtap="goBack">返回</view>
    
   <view class="header">
     <uni-icons type="search" size="30"></uni-icons>

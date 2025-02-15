@@ -1,0 +1,24 @@
+<view class="container">
+  <!-- 显示中医药内容 -->
+  <view class="knowledge">
+    <text class="title">中医药的基本知识</text>
+    <text class="content">
+      中药是指来自植物、动物或矿物的天然物质。
+      <br /><br />
+      常见的中药有：
+      - 人参：具有补气、强身健体的作用；
+      - 黄芪：用于增强免疫力，预防感冒；
+      - 枸杞：用于滋补肝肾，增强视力。
+      <br /><br />
+      以上是中药的一些基本介绍和常见的中药材。
+    </text>
+  </view>
+
+  <!-- 收藏按钮：根据 isCollected 动态绑定 class -->
+  <button class="collect-btn {{isCollected ? 'collect-btn-collected' : 'collect-btn-not-collected'}}" bindtap="onCollect">
+    {{isCollected ? '取消收藏' : '收藏'}}
+  </button>
+
+  <!-- 返回按钮 -->
+  <button class="back-btn" bindtap="goBack">返回</button>
+</view>

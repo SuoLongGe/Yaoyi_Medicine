@@ -22,22 +22,40 @@
   margin-top: 30px;
   text-align: center;
 }
+
 .nickname1 {
   font-size: 18px;
   font-weight: 500;
-  left: 50%;       
+  left: 50%;
   transform: translateX(-50%);
   bottom: 68%;
   position: fixed;
 }
-.login-btn, .logout-btn {
 
+.login-btn, .logout-btn {
   padding: 10px;
   background-color: #00ffaa;
   color: white;
   border-radius: 5px;
-  position:fixed;
+  position: fixed;
   bottom: 40px;
-  left: 50%;       
+  left: 50%;
   transform: translateX(-50%);
+}
+
+.favorites-btn {
+  padding: 10px;
+  background: linear-gradient(135deg, #FF61A6, #FF9A45); /* 渐变色 */
+  color: white;
+  border-radius: 8px;
+  position: fixed;
+  bottom: 100px; /* 适当调整位置，避免和退出按钮重叠 */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+}
+
+.favorites-btn:hover {
+  background: linear-gradient(135deg, #FF9A45, #FF61A6); /* 改变渐变色 */
 }

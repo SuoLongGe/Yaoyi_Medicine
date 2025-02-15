@@ -1,36 +1,19 @@
 /* pages/preDetail/preDetail.wxss */
 
-.back-btn {
-  position: absolute;
-  bottom: 30rpx;
-  left: 0rpx;
-  width: 100% !important;  /* 强制固定宽度 */
-  height: 30px !important; /* 强制设置高度 */
-  padding: 0;  /* 去掉 padding */
-  background-color: #519763;
-  color: white;
-  text-align: center;
-  border-radius: 10rpx;
-  font-size: 14px;
-  line-height: 50px;
-  overflow: hidden;
-  margin-top: 0;
-  margin-bottom: 35rpx;
-  margin-left: 0;
-  box-sizing: border-box;
-  line-height: 30px;
-  font-weight: bold;
-}
-
-
 .herb-detail {
+  height: 50%;
   margin-top: 108px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   background-color: #f5f5f5;
+  padding-bottom: 120rpx; /* 增加底部内边距，避免按钮被遮挡 */
 }
+
+
+
+
 
 .herb-img {
   width: 100%;

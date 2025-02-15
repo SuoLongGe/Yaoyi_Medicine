@@ -24,7 +24,7 @@ Page({
   getNewsById: function(id) {
     const newsList = [
       { id: 1, title: "2025年科技大会即将召开", imageUrl: "/images/herb1.png", content: [
-          { type: "text", value: "2025年全球科技大会将在北京召开，预计有2000+科技企业参展……" },
+          { type: "text", value: "瑶医药是中医药的重要组成部分，是中华民族的宝贵财富，至今仍然是瑶族聚居区各族群众防病治病、强身健体的重要手段。发展瑶医药事业，对于弘扬我国民族医学文化，让更多医疗健康产品更好更公平地惠及我国各族群众，夯实铸牢中华民族共同体意识的社会基础，促进民族地区经济和社会发展具有不可替代的作用。"},
           { type: "image", value: "/images/herb1.png" },
           { type: "text", value: "此次大会将涉及人工智能、5G通信等领域……" }
         ]

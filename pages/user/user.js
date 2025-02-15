@@ -1,10 +1,8 @@
 Page({
   data: {
-    userInfo: {
-      avatarUrl: '/images/1.png',  // 默认头像
-      nickName: '未登录'
-    },
-    isLoggedIn: false // 用于判断用户是否登录
+    userInfo: {},
+    isLoggedIn: false,
+    userFavorites: []  // 存储用户的收藏数据
   },
 
   onLoad: function () {
@@ -17,7 +15,6 @@ Page({
     wx.getSetting({
       success: (res) => {
         if (res.authSetting['scope.userInfo']) {
-          // 如果用户已授权，则直接获取用户信息
           wx.getUserInfo({
             success: (info) => {
               this.setData({
@@ -30,7 +27,6 @@ Page({
             }
           });
         } else {
-          // 如果用户没有授权，则显示登录按钮
           this.setData({
             isLoggedIn: false
           });
@@ -44,7 +40,6 @@ Page({
     wx.login({
       success: res => {
         if (res.code) {
-          // 获取用户信息
           wx.getUserInfo({
             success: info => {
               const userInfo = info.userInfo;
@@ -52,6 +47,9 @@ Page({
                 userInfo: userInfo,
                 isLoggedIn: true
               });
+
+              // 调用云函数获取 openid
+              this.getOpenid();
             },
             fail: err => {
               console.error('获取用户信息失败', err);
@@ -65,14 +63,57 @@ Page({
     });
   },
 
+  // 获取 openid
+  getOpenid: function () {
+    wx.cloud.callFunction({
+      name: 'getOpenid',  // 调用云函数名称
+      success: res => {
+        const openid = res.result.openid;
+        wx.setStorageSync('openid', openid);
+
+        // 获取用户的收藏数据
+        this.getUserFavorites(openid);
+      },
+      fail: err => {
+        console.error('获取 openid 失败', err);
+      }
+    });
+  },
+
+  // 获取用户收藏数据
+  getUserFavorites: function (openid) {
+    const db = wx.cloud.database();
+    db.collection('favorites').where({
+      openid: openid
+    }).get({
+      success: res => {
+        if (res.data.length > 0) {
+          this.setData({
+            userFavorites: res.data[0].favorites
+          });
+        }
+      },
+      fail: err => {
+        console.error('获取用户收藏数据失败', err);
+      }
+    });
+  },
+
+  // 点击查看收藏按钮，跳转到收藏页面并传递数据
+  onGoToFavorites: function () {
+    const openid = wx.getStorageSync('openid');
+    wx.navigateTo({
+      url: `/pages/favorites/favorites?openid=${openid}`  // 传递 openid
+    });
+  },
+
   // 退出登录
   onLogout: function () {
     this.setData({
-      userInfo: {
-        avatarUrl: '/images/default-avatar.png',
-        nickName: '未登录'
-      },
-      isLoggedIn: false
+      userInfo: { avatarUrl: '/images/default-avatar.png', nickName: '未登录' },
+      isLoggedIn: false,
+      userFavorites: []  // 清空收藏数据
     });
+    wx.removeStorageSync('openid');  // 移除本地存储的 openid
   }
 });

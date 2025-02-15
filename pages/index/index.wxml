@@ -1,5 +1,8 @@
 <view class="container">
 
+<!-- 自定义导航栏 -->
+<navigation-bar title="瑶医药典"></navigation-bar>
+
   <view class="header">
     <uni-icons type="search" size="30"></uni-icons>
     <button class="search-box" bindtap="goToSearch"> 🔍搜索药方/资讯</button>

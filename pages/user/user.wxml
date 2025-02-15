@@ -1,15 +1,17 @@
 <view class="container">
-  <!-- 如果用户已登录，显示用户信息；否则显示登录按钮 -->
   <view wx:if="{{isLoggedIn}}">
     <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
     <text class="nickname">{{userInfo.nickName}}</text>
+
+    <!-- 收藏按钮，点击后跳转到收藏页面 -->
+    <button class="favorites-btn" bindtap="onGoToFavorites">查看收藏</button>
+
     <!-- 退出登录按钮 -->
     <button class="logout-btn" bindtap="onLogout">退出登录</button>
   </view>
+
   <view wx:else>
     <text class="nickname1">未登录</text>
-    <!-- 登录按钮 -->
     <button class="login-btn" bindtap="onLogin">微信登录</button>
   </view>
- 
 </view>

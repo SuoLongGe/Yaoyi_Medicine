@@ -12,6 +12,11 @@ Page({
       { id: 3, name: "草药 3", img: "/images/herb3.png" },
       { id: 4, name: "草药 4", img: "/images/herb4.png" },
       { id: 5, name: "草药 5", img: "/images/herb5.png" },
+      { id: 6, name: "草药 1", img: "/images/herb1.png" },
+      { id: 7, name: "草药 2", img: "/images/herb2.png" },
+      { id: 8, name: "草药 3", img: "/images/herb3.png" },
+      { id: 9, name: "草药 4", img: "/images/herb4.png" },
+      { id: 10, name: "草药 5", img: "/images/herb5.png" }
     ], 
 
     activeCategory: 0,
@@ -24,7 +29,7 @@ Page({
       this.setData({ fadeIn: true });
     }, 500);
     this.getSwiperList();
-    this.getNewsList();
+    // this.getNewsList();
   },
   getSwiperList() {
     wx.request({

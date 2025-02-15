@@ -2,32 +2,27 @@
 /* 整体页面样式 */
 .news-detail {
   width: 100%;
-  padding: 0px;
   background-color: #ffffff;
   min-height: 100vh;
 }
 
 /* 返回按钮 */
 .back-btn {
-  position: absolute;
-  bottom: 30rpx;
-  left: 0rpx;
-  width: 100% !important;  /* 强制固定宽度 */
-  height: 30px !important; /* 强制设置高度 */
-  padding: 0;  /* 去掉 padding */
+  position: fixed; /* 将按钮固定在屏幕底部 */
+  bottom: 0; /* 固定在屏幕底部 */
+  left: 0; /* 左对齐 */
+  width: 100% !important; /* 宽度为100% */
+  height: 80rpx !important; /* 设置适当的高度 */
   background-color: #519763;
   color: white;
   text-align: center;
   border-radius: 10rpx;
   font-size: 14px;
-  line-height: 50px;
-  overflow: hidden;
-  margin-top: 0;
-  margin-bottom: 35rpx;
-  margin-left: 0;
-  box-sizing: border-box;
-  line-height: 30px;
+  line-height: 50rpx; /* 高度相等使得文字垂直居中 */
+  box-sizing: border-box; /* 包含 padding 和 border 在内的宽高计算 */
+  margin: 0; /* 去除所有外边距 */
 }
+
 
 .news-title {
   margin-top: 85px;
@@ -54,13 +49,17 @@
 .news-content-wrapper {
   padding-left: 10px;
   padding-right: 8px;
+  margin-bottom: 100px;
 }
+
 
 .news-card {
   background-color: #fff;
   border-radius: 10rpx;
-  padding: 0rpx;
+  padding: 10rpx; /* 确保有足够的内边距 */
+  margin-bottom: 50px;
 }
+
 
 .news-paragraph {
   margin-bottom: 20rpx;

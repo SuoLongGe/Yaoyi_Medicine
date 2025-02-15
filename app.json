@@ -8,11 +8,12 @@
     "pages/internal/internal",
     "pages/external/external",
     "pages/preDetail/preDetail",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/medicine/medicine",
+    "pages/favorites/favorites"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "瑶医药典",
     "backgroundColor": "#eeeeee",
