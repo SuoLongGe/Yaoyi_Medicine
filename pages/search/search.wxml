@@ -1,21 +1,42 @@
-<!--pages/search/search.wxml-->
 <view class="container">
+  <!-- 聊天框 -->
+  <view class="chat-box">
+    <block wx:for="{{chatHistory}}" wx:key="index">
+      <view class="message {{item.role == 'user' ? 'user-message' : 'ai-message'}}">
+        <text>{{item.role == 'user' ? '你' : '瑶医小助手'}}: {{item.content}}</text>
+      </view>
+      <view class="divider"></view> <!-- 蓝色分割线 -->
+    </block>
 
-  <view class="back-btn" bindtap="goBack">返回</view>
-   
-  <view class="header">
-    <uni-icons type="search" size="30"></uni-icons>
-    <input class="search-box" bindinput="onSearchInput" placeholder="搜索药方" />
+    <!-- AI 处理中，显示"请稍后..." -->
+    <view wx:if="{{loading}}" class="loading-message">
+      <text>瑶医小助手正在思考，请稍后...</text>
+    </view>
   </view>
 
-<!-- 搜索结果 -->
-<view class="herb-list">
-  <block wx:for="{{filteredHerbList}}" wx:key="id">
-    <view class="herb-item" bindtap="goToHerbDetail" data-id="{{item.id}}">
-      <image class="herb-img" src="{{item.img}}" mode="aspectFill"></image>
-      <text class="herb-name">{{item.name}}</text>
-    </view>
-  </block>
+  <!-- 输入框 -->
+  <view class="input-box">
+    <input class="input" placeholder="输入你的问题..." value="{{userInput}}" bindinput="onInputChange" />
+    <button class="send-btn" bindtap="sendMessage">发送</button>
+  </view>
 </view>
 
+<!-- 固定底部导航栏 -->
+<view class="tab-bar">
+  <view class="tab-item" bindtap="onTabClick" data-page="index">
+    <view class="iconfont icon-home"></view>
+    <text>首页</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="user">
+    <view class="iconfont icon-user"></view>
+    <text>我的</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="news">
+    <view class="iconfont icon-news"></view>
+    <text>资讯</text>
+  </view>
+  <view class="tab-item active" bindtap="onTabClick" data-page="search">
+    <view class="iconfont icon-search"></view>
+    <text>助手</text>
+  </view>
 </view>

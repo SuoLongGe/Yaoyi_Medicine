@@ -1,17 +1,2 @@
-<view class="page-container">
-  <!-- 返回按钮 -->
-  <view class="back-button" bindtap="goBack">返回</view>
-
-  <!-- 草药列表 -->
-  <view class="herb-list">
-    <block wx:for="{{herbList}}" wx:key="id">
-      <view class="herb-item" bindtap="goToHerbDetail" data-id="{{item.id}}">
-        <image class="herb-img" src="{{item.img}}" mode="aspectFill"></image>
-        <view class="herb-text">
-          <text class="herb-name">{{item.name}}</text>
-        </view>
-      </view>
-      <view class="divider"></view> <!-- 蓝色分割线 -->
-    </block>
-  </view>
-</view>
+<!--pages/internal/internal.wxml-->
+<text>pages/internal/internal.wxml</text>

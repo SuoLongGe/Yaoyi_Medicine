@@ -1,17 +1,48 @@
 <view class="container">
-  <view wx:if="{{isLoggedIn}}">
-    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
-    <text class="nickname">{{userInfo.nickName}}</text>
+  <view class="user-info" wx:if="{{isLoggedIn}}">
+    <!-- 头像和昵称区域 -->
+    <view class="user-details">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      <text class="nickname">{{userInfo.nickName || '微信用户'}}</text>
+    </view>
 
-    <!-- 收藏按钮，点击后跳转到收藏页面 -->
-    <button class="favorites-btn" bindtap="onGoToFavorites">查看收藏</button>
+    <view class="action-card favorites" bindtap="onGoToFavorites">
+      <view class="iconfont icon-favorite"></view>
+      <text class="card-text">我的收藏</text>
+    </view>
 
-    <!-- 退出登录按钮 -->
-    <button class="logout-btn" bindtap="onLogout">退出登录</button>
+    <view class="action-card logout" bindtap="onLogout">
+      <view class="iconfont icon-user"></view>
+      <text class="card-text">退出登录</text>
+    </view>
   </view>
 
-  <view wx:else>
-    <text class="nickname1">未登录</text>
-    <button class="login-btn" bindtap="onLogin">微信登录</button>
+  <view class="login-info" wx:else>
+    <image class="avatar" src="/images/default-avatar.png" mode="aspectFill"></image>
+    <text class="nickname">未登录</text>
+    <view class="action-card login" bindtap="onLogin">
+      <view class="iconfont icon-user"></view>
+      <text class="card-text">微信登录</text>
+    </view>
+  </view>
+</view>
+
+<!-- 固定底部导航栏 -->
+<view class="tab-bar">
+  <view class="tab-item" bindtap="onTabClick" data-page="index">
+    <view class="iconfont icon-home"></view>
+    <text>首页</text>
+  </view>
+  <view class="tab-item active" bindtap="onTabClick" data-page="user">
+    <view class="iconfont icon-user"></view>
+    <text>我的</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="news">
+    <view class="iconfont icon-news"></view>
+    <text>资讯</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="search">
+    <view class="iconfont icon-search"></view>
+    <text>助手</text>
   </view>
 </view>

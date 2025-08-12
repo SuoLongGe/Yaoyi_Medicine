@@ -6,26 +6,8 @@
   min-height: 100vh;
 }
 
-/* 返回按钮 */
-.back-btn {
-  position: fixed; /* 将按钮固定在屏幕底部 */
-  bottom: 0; /* 固定在屏幕底部 */
-  left: 0; /* 左对齐 */
-  width: 100% !important; /* 宽度为100% */
-  height: 80rpx !important; /* 设置适当的高度 */
-  background-color: #519763;
-  color: white;
-  text-align: center;
-  border-radius: 10rpx;
-  font-size: 14px;
-  line-height: 50rpx; /* 高度相等使得文字垂直居中 */
-  box-sizing: border-box; /* 包含 padding 和 border 在内的宽高计算 */
-  margin: 0; /* 去除所有外边距 */
-}
-
-
 .news-title {
-  margin-top: 85px;
+  margin-top: 5px;
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 20rpx;

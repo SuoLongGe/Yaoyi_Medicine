@@ -1,17 +1,48 @@
 <view class="page-container">
-  <!-- 返回按钮 -->
-  <view class="back-button" bindtap="goBack">返回</view>
 
-  <!-- 草药列表 -->
-  <view class="herb-list">
-    <block wx:for="{{herbList}}" wx:key="id">
-      <view class="herb-item" bindtap="goToHerbDetail" data-id="{{item.id}}">
-        <image class="herb-img" src="{{item.img}}" mode="aspectFill"></image>
-        <view class="herb-text">
-          <text class="herb-name">{{item.name}}</text>
-        </view>
+<view class="header">
+  <input class="search-box" focus="{{searchFocus}}" bindblur="onSearchBlur" placeholder="搜索瑶医外用药方" />
+</view>
+
+<!-- 药方列表 -->
+<view class="herb-list">
+  <block wx:for="{{matchedList}}" wx:key="id">
+    <view class="herb-item1" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="herb-text">
+        <text class="herb-name">{{item.name}}</text> <!-- 显示药方名称 -->
+        <text class="herb-prescription">{{item.prescription}}</text> <!-- 显示药方功效 -->
       </view>
-      <view class="divider"></view> <!-- 蓝色分割线 -->
-    </block>
+    </view>
+    <view class="divider" wx:if="{{index < matchedList.length-1 || unmatchedList.length > 0}}"></view> <!-- 蓝色分割线 -->
+  </block>
+  <block wx:for="{{unmatchedList}}" wx:key="id">
+    <view class="herb-item" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="herb-text">
+        <text class="herb-name">{{item.name}}</text> <!-- 显示药方名称 -->
+        <text class="herb-prescription">{{item.prescription}}</text> <!-- 显示药方功效 -->
+      </view>
+    </view>
+    <view class="divider" wx:if="{{index < unmatchedList.length-1}}"></view> <!-- 蓝色分割线 -->
+  </block>
+</view>
+</view>
+
+<!-- 固定底部导航栏 -->
+<view class="tab-bar">
+  <view class="tab-item" bindtap="onTabClick" data-page="index">
+    <view class="iconfont icon-home"></view>
+    <text>首页</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="user">
+    <view class="iconfont icon-user"></view>
+    <text>我的</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="news">
+    <view class="iconfont icon-news"></view>
+    <text>资讯</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="search">
+    <view class="iconfont icon-search"></view>
+    <text>助手</text>
   </view>
 </view>

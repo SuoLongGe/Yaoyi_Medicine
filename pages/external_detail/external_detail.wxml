@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="section">
+    <text class="name" style="text-align: center;">{{name}}</text>
+    <view>
+      <text class="brief" decode="true">{{brief}}</text>
+    </view>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="section">
+    <text class="label">【证型】</text>
+    <text class="content" decode="true">{{syndrome}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="section">
+    <text class="label">【治法】</text>
+    <text class="content" decode="true">{{treatment}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="section">
+    <text class="label">【方药】</text>
+    <text class="content" decode="true">{{prescription}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="section">
+    <text class="label">【用法】</text>
+    <text class="content" decode="true">{{method}}</text>
+  </view>
+
+  <!-- 收藏按钮 -->
+  <view class="card" bindtap="toggleFavorite">
+    <text class="favorite-text">{{isFavorite ? '已收藏' : '收藏'}}</text>
+  </view>
+</view>

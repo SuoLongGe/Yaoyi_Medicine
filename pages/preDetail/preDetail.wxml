@@ -1,17 +1,16 @@
 <view class="herb-detail">
-  <button class="back-btn" bindtap="goBack">返回</button>
+<!-- 草药图片 -->
+<image class="herb-img" src="{{herbInfo.img}}" mode="aspectFill"></image>
 
-  <!-- 草药图片 -->
-  <image class="herb-img" src="{{herbInfo.img}}" mode="aspectFill"></image>
+<!-- 草药名称 -->
+<text class="herb-title">{{herbInfo.name}}</text>
 
-  <!-- 草药名称 -->
-  <text class="herb-title">{{herbInfo.name}}</text>
+<!-- 分割线 -->
+<view class="divider"></view>
 
-  <!-- 分割线 -->
-  <view class="divider"></view>
+<!-- 草药描述 --> 
+<view class="herb-desc"> <text>{{herbInfo.description}}</text> </view> 
+<!-- 收藏按钮 --> 
 
-  <!-- 草药描述 -->
-  <view class="herb-desc">
-    <text>{{herbInfo.description}}</text>
-  </view>
-</view>
+<button class="collect-btn {{isCollected ? 'collect-btn-collected' : 'collect-btn-not-collected'}}" bindtap="onCollect"> {{isCollected ? '取消收藏' : '收藏'}} </button>
+ </view>

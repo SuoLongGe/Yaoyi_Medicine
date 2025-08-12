@@ -1,72 +1,154 @@
 /* 页面整体容器 */
 .page-container {
-  margin-top: 0px;
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  padding: 0rpx;
-  background-color: #89c79e;
-}
-
-/* 返回按钮 */
- .back-button {
-  position: absolute;
-  top: 100rpx;
-  left: 30rpx;
-  padding: 10rpx 20rpx;
-  background-color: #007AFF;
-  color: white;
-  border-radius: 10rpx;
-  font-size: 28rpx;
-  text-align: center;
-  z-index: 10;
-}
-
-/* 草药列表 */
-.herb-list {
-  padding-top: 100px;
-  margin-top: 0px; 
-  width: 100%;
-  background-color: #e8f0e9;
-}
-
-/* 单个草药项 */
-.herb-item {
-  background-color: #8a928d17;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 20rpx 10rpx;
-}
-
-/* 草药图片 */
-.herb-img {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 10rpx;
-  margin-left: 20px;
-  margin-right: 40rpx;
-}
-
-/* 文字容器 */
-.herb-text {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-/* 文字样式 */
-.herb-name {
-  font-size: 36rpx;
-  font-weight: bold;
-  color: #000;
-  text-align: left;
-}
-
-/* 蓝色分割线 */
-.divider {
-  width: 100%;
-  height: 2rpx;
-  background-color: #3B82F6;
-  margin: 5rpx 0;
-}
+    margin-top: 0px;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 15px;
+    background-color: #f5f9f6;
+    padding-bottom: 70px;
+  }
+  
+  .header {
+    width: 92%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+  .search-box {
+    flex-grow: 1;
+    height: 45px;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 15px;
+    border: none;
+    background-color: white;
+    border-radius: 25px;
+    line-height: 45px;
+    color: #666;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  /* 药方列表 */
+  .herb-list {
+    width: 94%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 5px 0;
+  }
+  
+  /* 单个药方项 */
+  .herb-item1 {
+    background-color: #f0f7f2;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    transition: background-color 0.3s;
+  }
+  
+  .herb-item1:active {
+    background-color: #e6f2e9;
+  }
+  
+  .herb-item {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    transition: background-color 0.3s;
+  }
+  
+  .herb-item:active {
+    background-color: #f0f7f2;
+  }
+  
+  .herb-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .herb-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1f6b3b;
+  }
+  
+  .herb-prescription {
+    padding-top: 8px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .comma {
+    display: inline-block; /* 逗号也改为 inline-block */
+  }
+  
+  .clickable {
+    color: #1f6b3b;
+    text-decoration: underline;
+  }
+  
+  /* 分割线 */
+  .divider {
+    width: 92%;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 0 auto;
+  }
+  
+  /* 固定底部导航栏样式 */
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    padding: 5px 0;
+  }
+  
+  /* 每个 tab 项样式 */
+  .tab-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+  }
+  
+  .tab-item .iconfont {
+    font-size: 20px;
+    color: #666;
+  }
+  
+  .tab-item text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+  }
+  
+  .tab-item.active .iconfont,
+  .tab-item.active text {
+    color: #1f6b3b;
+    font-weight: bold;
+  }
+  

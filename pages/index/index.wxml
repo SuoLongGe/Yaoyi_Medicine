@@ -1,14 +1,13 @@
 <view class="container">
 
-<!-- 自定义导航栏 -->
-<navigation-bar title="瑶医药典"></navigation-bar>
+<view class="header">
+  <button class="search-box" bindtap="goToSearch">
+    <text class="iconfont icon-search"></text>
+    欢迎提出任何瑶医相关疑问
+  </button>
+</view>
 
-  <view class="header">
-    <uni-icons type="search" size="30"></uni-icons>
-    <button class="search-box" bindtap="goToSearch"> 🔍搜索药方/资讯</button>
-  </view>
-
-  <swiper autoplay="true" interval="3000" circular="true">
+<swiper autoplay="true" interval="4000" circular="true" indicator-dots="true" indicator-active-color="#89c79e">
   <block wx:for="{{swiperList}}" wx:key="id">
     <swiper-item>
       <image src="{{item.imgUrl}}" class="swiper-img" mode="aspectFill"></image>
@@ -17,20 +16,40 @@
 </swiper>
 
 <view class="section-buttons">
-  <button class="tab-btn" bindtap="goToInternal" data-page="internal">内服</button>
-  <button class="tab-btn" bindtap="goToExternal" data-page="external">外用</button>
+  <button class="tab-btn" bindtap="goToInternal" data-page="internal">瑶医技法</button>
+  <button class="tab-btn" bindtap="goToExternal" data-page="external">外用药方</button>
 </view>
 
+<!-- 药方列表 -->
 <view class="herb-list">
-    <block wx:for="{{herbList}}" wx:key="id">
-      <view class="herb-item" bindtap="goToHerbDetail" data-id="{{item.id}}">
-        <image class="herb-img" src="{{item.img}}" mode="aspectFill"></image>
-        <view class="herb-text">
-          <text class="herb-name">{{item.name}}</text>
-        </view>
+  <block wx:for="{{externalRemedies}}" wx:key="id">
+    <view class="herb-item1" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="herb-text">
+        <text class="herb-name">{{item.name}}</text>
+        <text class="herb-prescription">{{item.prescription}}</text>
       </view>
-      <view class="divider"></view> <!-- 蓝色分割线 -->
-    </block>
-  </view>
+    </view>
+    <view class="divider" wx:if="{{index < externalRemedies.length-1}}"></view>
+  </block>
+</view>
+</view>
 
+<!-- 固定底部导航栏 -->
+<view class="tab-bar">
+  <view class="tab-item active" bindtap="onTabClick" data-page="index">
+    <view class="iconfont icon-home"></view>
+    <text>首页</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="user">
+    <view class="iconfont icon-user"></view>
+    <text>我的</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="news">
+    <view class="iconfont icon-news"></view>
+    <text>资讯</text>
+  </view>
+  <view class="tab-item" bindtap="onTabClick" data-page="search">
+    <view class="iconfont icon-search"></view>
+    <text>助手</text>
+  </view>
 </view>

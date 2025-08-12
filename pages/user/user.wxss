@@ -1,61 +1,157 @@
+/* 容器样式 */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%), url('images/bg2.png');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  height: 100vh;
-}
-
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-top: 50px;
-}
-
-.nickname {
-  font-size: 18px;
-  margin-top: 30px;
-  text-align: center;
-}
-
-.nickname1 {
-  font-size: 18px;
-  font-weight: 500;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 68%;
-  position: fixed;
-}
-
-.login-btn, .logout-btn {
-  padding: 10px;
-  background-color: #00ffaa;
-  color: white;
-  border-radius: 5px;
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.favorites-btn {
-  padding: 10px;
-  background: linear-gradient(135deg, #FF61A6, #FF9A45); /* 渐变色 */
-  color: white;
-  border-radius: 8px;
-  position: fixed;
-  bottom: 100px; /* 适当调整位置，避免和退出按钮重叠 */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 16px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-}
-
-.favorites-btn:hover {
-  background: linear-gradient(135deg, #FF9A45, #FF61A6); /* 改变渐变色 */
-}
+    padding: 20px;
+    background-color: #f5f9f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;  /* 保证顶部对齐 */
+    height: 100vh; /* 让容器占满整个视口 */
+    padding-bottom: 70px;
+  }
+  
+  /* 用户信息展示（已登录状态） */
+  .user-info {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 头像和昵称区域 */
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #89c79e;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .nickname {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1f6b3b;
+  }
+  
+  /* 卡片样式 */
+  .action-card {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .action-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .action-card .iconfont {
+    font-size: 22px;
+    margin-right: 15px;
+  }
+  
+  .card-text {
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* 登录、退出登录、收藏的颜色 */
+  .favorites {
+    background-color: #f0f7f2;
+  }
+  
+  .favorites .iconfont {
+    color: #1f6b3b;
+  }
+  
+  .logout {
+    background-color: #ffeeee;
+  }
+  
+  .logout .iconfont, .logout .card-text {
+    color: #e74c3c;
+  }
+  
+  .login {
+    background-color: #e6f7e6;
+  }
+  
+  .login .iconfont {
+    color: #1AAD19;
+  }
+  
+  /* 未登录状态调整 */
+  .login-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+  .login-info .nickname {
+    margin: 20px 0 30px;
+    color: #999;
+  }
+  
+  /* 固定底部导航栏样式 */
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    padding: 5px 0;
+  }
+  
+  /* 每个 tab 项样式 */
+  .tab-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+  }
+  
+  .tab-item .iconfont {
+    font-size: 20px;
+    color: #666;
+  }
+  
+  .tab-item text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+  }
+  
+  .tab-item.active .iconfont,
+  .tab-item.active text {
+    color: #1f6b3b;
+    font-weight: bold;
+  }
+  

@@ -1,14 +1,39 @@
 Page({
     data: {
-      userFavorites: [],   // 存储用户的收藏数据
-      pageSize: 20,        // 每次加载的数据条数
-      currentPage: 1,      // 当前加载的页数
-      hasMore: true,       // 是否还有更多数据
+      userFavorites: [], // 存储用户的收藏数据
+      pageSize: 20, // 每次加载的数据条数
+      currentPage: 1, // 当前加载的页数
+      hasMore: true, // 是否还有更多数据
     },
   
     onLoad: function (options) {
-      const openid = options.openid;  // 获取传递过来的 openid
-      this.getUserFavorites(openid);  // 根据 openid 获取初始数据
+      // 获取传递的 openid 参数，如果没有传递，则从本地缓存获取
+      const openid = options.openid || wx.getStorageSync('openid');
+      if (openid) {
+        this.getUserFavorites(openid); // 加载初始收藏数据
+      } else {
+        console.error('未获取到 openid');
+      }
+    },
+  
+    onShow: function () {
+      // 每次页面重新显示时检查登录状态
+      this.checkLoginStatus();
+    },
+  
+    checkLoginStatus: function () {
+      const openid = wx.getStorageSync('openid'); // 从缓存获取 openid
+      if (openid) {
+        this.setData({
+          isLoggedIn: true,
+          openid: openid,
+        });
+      } else {
+        this.setData({
+          isLoggedIn: false,
+          openid: '',
+        });
+      }
     },
   
     // 获取用户收藏数据
@@ -16,18 +41,30 @@ Page({
       const db = wx.cloud.database();
       const { pageSize, currentPage } = this.data;
   
-      // 根据分页查询
       db.collection('favorites')
-        .where({ openid: openid })
-        .skip((currentPage - 1) * pageSize)  // 跳过已经加载的部分
-        .limit(pageSize)  // 限制每次查询的数据条数
+        .where({ _openid: openid })  // 根据 openid 查询收藏数据
+        .skip((currentPage - 1) * pageSize)  // 分页跳过已加载的数据
+        .limit(pageSize)  // 限制每次加载的数量
         .get({
           success: res => {
             if (res.data.length > 0) {
+              const oldList = this.data.userFavorites;
+              const newList = oldList.concat(res.data);
+  
+              // 去重逻辑：避免重复收藏项
+              const uniqueList = [];
+              const seenMap = {};
+              for (const item of newList) {
+                if (!seenMap[item.pageUrl]) {
+                  seenMap[item.pageUrl] = true;
+                  uniqueList.push(item);
+                }
+              }
+  
               this.setData({
-                userFavorites: [...this.data.userFavorites, ...res.data],  // 合并新数据
-                currentPage: currentPage + 1,  // 更新当前页数
-                hasMore: res.data.length === pageSize,  // 判断是否还有更多数据
+                userFavorites: uniqueList,
+                currentPage: currentPage + 1,
+                hasMore: (res.data.length === pageSize),
               });
             } else {
               this.setData({
@@ -41,11 +78,11 @@ Page({
         });
     },
   
-    // 滚动到底部时触发加载更多数据
+    // 加载更多
     onReachBottom: function () {
       if (this.data.hasMore) {
-        const openid = wx.getStorageSync('openid');  // 获取用户的 openid
-        this.getUserFavorites(openid);  // 加载更多数据
+        const openid = wx.getStorageSync('openid');
+        this.getUserFavorites(openid);
       } else {
         wx.showToast({
           title: '没有更多数据了',
@@ -54,11 +91,11 @@ Page({
       }
     },
   
-    // 点击收藏标题跳转到对应的页面
+    // 点击查看收藏项详情
     goToDetail: function (event) {
-      const pageUrl = event.currentTarget.dataset.pageUrl;  // 获取跳转链接
+      const pageUrl = event.currentTarget.dataset.pageUrl; // 获取点击项的 pageUrl
       wx.navigateTo({
-        url: pageUrl  // 跳转到收藏的页面
+        url: pageUrl  // 跳转到指定页面
       });
     }
   });

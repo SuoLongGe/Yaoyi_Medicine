@@ -1,0 +1,35 @@
+/* pages/webview/webview.wxss */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .header {
+    height: 50px;
+    background-color: #89c79e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    color: #fff;
+  }
+  
+  .back, .placeholder {
+    width: 50px; /* 占位，保证标题居中 */
+  }
+  
+  .back-text {
+    font-size: 16px;
+  }
+  
+  .title {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .webview {
+    flex: 1;
+  }
+  

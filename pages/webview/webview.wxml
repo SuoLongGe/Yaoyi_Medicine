@@ -1,0 +1,16 @@
+<!-- pages/webview/webview.wxml -->
+<view class="container">
+  <!-- 自定义顶部导航栏 -->
+  <view class="header">
+    <view class="back" bindtap="goBack">
+      <text class="back-text">返回</text>
+    </view>
+    <view class="title">
+      <text>网页浏览</text>
+    </view>
+    <!-- 占位，保证标题居中 -->
+    <view class="placeholder"></view>
+  </view>
+  <!-- web-view 用于展示传入的 URL 网页 -->
+  <web-view src="{{url}}" class="webview"></web-view>
+</view>

@@ -1,18 +1,35 @@
 Page({
     data: {
-      isCollected: false  // 用于判断当前页面是否已被收藏
+      isCollected: false  // 收藏状态
     },
   
     // 点击收藏按钮时的处理逻辑
     onCollect: function () {
       const openid = wx.getStorageSync('openid');  // 获取当前用户的 openid
-      const title = '中医药的基本知识';  // 当前页面的标题，用于判断是否已收藏
+      const pageUrl = '/pages/medicine/medicine';    // 唯一标识
+      const title = '中医药的基本知识';             // 收藏标题
       const db = wx.cloud.database();
-  
-      // 查询该用户是否已经收藏过该条数据
+      if (!openid) {
+        wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        confirmText: '去登录',
+        cancelText: '取消',
+        success: (res) => {
+        if (res.confirm) {
+        // 用户点击“去登录”
+        wx.navigateTo({
+        url: '/pages/user/user'
+        });
+        }
+        }
+        });
+        return;
+        }
+      // 查询该用户是否已经收藏过该条数据（使用 _openid 和 pageUrl 作为条件）
       db.collection('favorites').where({
-        openid: openid,
-        title: title  // 检查是否已经收藏该标题
+        _openid: openid,
+        pageUrl: pageUrl
       }).get({
         success: res => {
           if (res.data.length > 0) {
@@ -21,13 +38,12 @@ Page({
               title: '已收藏，取消收藏',
               icon: 'none'
             });
-  
-            // 删除收藏
+            // 删除收藏记录
             db.collection('favorites').where({
-              openid: openid,
-              title: title
+              _openid: openid,
+              pageUrl: pageUrl
             }).remove({
-              success: res => {
+              success: () => {
                 this.setData({
                   isCollected: false  // 更新按钮状态为未收藏
                 });
@@ -41,21 +57,18 @@ Page({
               }
             });
           } else {
-            // 如果未收藏，进行收藏操作
+            // 如果未收藏，则执行收藏操作
             const collectionData = {
-              title: title,  // 收藏的标题
+              title: title,
               content: '中药是指来自植物、动物或矿物的天然物质，用于治疗疾病、调节身体的平衡。',
-              timestamp: new Date().getTime(),  // 收藏的时间戳
-              pageUrl: '/pages/medicine/medicine',  // 收藏的页面链接
-              openid: openid  // 保存 openid 以便查询
+              timestamp: new Date().getTime(),
+              pageUrl: pageUrl
+              // 不需要传入 openid，云开发会自动注入 _openid
             };
   
-            // 将数据添加到收藏列表中
             db.collection('favorites').add({
               data: collectionData,
-              success: res => {
-                console.log('收藏成功', res);
-                // 更新按钮状态，表示已收藏
+              success: () => {
                 this.setData({
                   isCollected: true
                 });
@@ -75,21 +88,20 @@ Page({
         }
       });
     },
-  
-    // 页面加载时检查是否已经收藏
+   
+    // 页面加载时检查是否已收藏
     onLoad: function () {
       const openid = wx.getStorageSync('openid');  // 获取当前用户的 openid
-      const title = '中医药的基本知识';  // 当前页面的标题，用于检查是否已收藏
+      const pageUrl = '/pages/medicine/medicine';    // 唯一标识
       const db = wx.cloud.database();
   
-      // 查询该用户是否已经收藏该项
+      // 查询该用户是否已经收藏（使用 _openid 和 pageUrl 作为条件）
       db.collection('favorites').where({
-        openid: openid,
-        title: title  // 检查是否已经收藏该标题
+        _openid: openid,
+        pageUrl: pageUrl
       }).get({
         success: res => {
           if (res.data.length > 0) {
-            // 如果收藏项已存在，更新按钮状态
             this.setData({
               isCollected: true
             });
@@ -103,10 +115,9 @@ Page({
   
     // 返回上一页
     goBack: function () {
-        wx.reLaunch({
-          url: '/pages/index/index'  // 跳转到首页，替换成你的首页路径
-        });
-      }
-      
+      wx.reLaunch({
+        url: '/pages/index/index'
+      });
+    }
   });
   

@@ -1,82 +1,128 @@
-/* pages/search/search.wxss */
+/* 容器样式 */
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #89c79e;
-  overflow: hidden; /* 防止内容超出导致 swiper 变小 */
+  height: 100vh;
+  background-color: #f5f9f6;
+  padding: 15px;
+  padding-bottom: 80px;
 }
 
-.back-btn {
-  position: absolute;
-  bottom: 30rpx;
-  left: 0rpx;
-  width: 100% !important;  /* 强制固定宽度 */
-  height: 30px !important; /* 强制设置高度 */
-  padding: 0;  /* 去掉 padding */
-  background-color: #519763;
-  color: white;
-  text-align: center;
-  border-radius: 10rpx;
-  font-size: 14px;
-  line-height: 50px;
-  overflow: hidden;
-  margin-top: 0;
-  margin-bottom: 35rpx;
-  margin-left: 0;
-  box-sizing: border-box;
-  line-height: 30px;
-  font-weight: bold;
-}
-
-.header {
-  width: 90%; /* 让 header 占满整个屏幕宽度 */
-  display: flex; /* 使用 flex 让子元素自动填充 */
-  justify-content: center;
-  align-items: center;
-  padding: 0; /* 避免 padding 影响宽度 */
-  box-sizing: border-box; /* 确保 padding 不会影响实际宽度 */
-}
-
-.search-box {
-  flex-grow: 1; /* 让按钮自动填充 header */
-  height: 40px;
-  font-size: 16px;
-  text-align: left; /* 让文本左对齐，模仿输入框 */
-  padding-left: 10px;
-  border: 1px solid #ccc;
-  background-color: white;
-  border-radius: 35px;
-  line-height: 40px;
-  color: #999;
-  margin: 0; /* 彻底去除多余的间距 */
+/* 聊天框 */
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
   display: flex;
-  align-items: center; /* 让文字垂直居中 */
-  box-sizing: border-box;
+  flex-direction: column;
   margin-bottom: 10px;
 }
 
-/* 草药列表 */
-.herb-list {
-  margin-top: 0rpx; 
-  width: 100%;
-  background-color: #e8f0e9;
+/* 聊天气泡样式 */
+.message {
+  max-width: 80%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border-radius: 18px;
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: break-word;
+  display: inline-block;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-/* 单个草药项 */
-.herb-item {
-  background-color: #5a5c5f17;
+/* 用户消息（右侧气泡） */
+.user-message {
+  background-color: #89c79e;
+  color: white;
+  align-self: flex-end;
+  border-top-right-radius: 4px;
+}
+
+/* AI消息（左侧气泡） */
+.ai-message {
+  background-color: white;
+  color: #333;
+  align-self: flex-start;
+  border-top-left-radius: 4px;
+}
+
+/* 输入框和按钮 */
+.input-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
-  width: 100%;
-  padding: 20rpx 10rpx;
+  background: white;
+  padding: 12px 16px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  border-top: 1px solid #eee;
+  z-index: 999;
 }
 
-/* 草药图片 */
-.herb-img {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 10rpx;
-  margin-left: 20px;
-  margin-right: 40rpx;
+.input {
+  flex: 1;
+  height: 45px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  background-color: #f0f7f2;
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  background-color: #e6f2e9;
+  box-shadow: 0 0 8px rgba(31, 107, 59, 0.1);
+}
+
+.send-btn {
+  width: 80px !important;
+  margin-left: 10px;
+  height: 45px;
+  line-height: 45px;
+  font-size: 16px;
+  color: white;
+  background-color: #89c79e;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(31, 107, 59, 0.2);
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.send-btn:active {
+  transform: scale(0.95);
+  background-color: #6db183;
+}
+
+/* 加载中的提示 */
+.loading-message {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  padding: 10px;
+  margin: 10px 0;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 分割线 */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 5px 0;
+}
+
+/* 渐显动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

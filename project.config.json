@@ -1,6 +1,10 @@
 {
   "compileType": "miniprogram",
   "libVersion": "trial",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
   "setting": {
     "coverView": true,
     "es6": true,
@@ -23,9 +27,8 @@
   },
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "cloudfunctionRoot": "cloud/",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "appid": "wx708ae1c95fc4866d"
+  "appid": "wx708ae1c95fc4866d",
+  "cloud": {
+    "env": "supreme-4ggo1kaube9c4a60"
+  }
 }

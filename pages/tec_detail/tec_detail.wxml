@@ -1,0 +1,53 @@
+<view class="container">
+  <view class="section">
+    <text class="name" style="text-align: center;">{{name}}</text>
+    <view>
+      <text class="brief" decode="true">{{brief}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="label">【疗法功效】</text>
+    <text class="content" decode="true">{{effect}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="section">
+    <text class="label">【适用范围】</text>
+    <text class="content" decode="true">{{scope}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="section">
+    <text class="label">【操作方法】</text>
+    <text class="content"  decode="true">{{method}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="section">
+    <text class="label">【禁忌症】</text>
+    <text class="content"  decode="true">{{restriction}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="section">
+    <text class="label">【注意事项】</text>
+    <text class="content"  decode="true">{{attention}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="section">
+    <text class="label">【不良情况处理及预防】</text>
+    <text class="content"  decode="true">{{handle}}</text>
+  </view>
+
+  <!-- 收藏按钮 -->
+  <view class="card" bindtap="toggleFavorite">
+    <text class="favorite-text">{{isFavorite ? '已收藏' : '收藏'}}</text>
+  </view>
+</view>

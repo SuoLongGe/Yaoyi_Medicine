@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('data:font/woff2;charset=utf-8;base64,d09GMgABAAAAAAO0AAsAAAAACFwAAANlAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFQGYACDMgqDaIM0ATYCJAMUCwwABCAFhGcHWBswBxEVnPHIfiZkcqrXlmVRVla2nT3Hp1LJ8OD7o++cO292JtPEknhCtUQiJJFIECWRIlmJkCiFdHj+N9X+7BxddE0iJTOPm3j4uOm9SUgzIUKYhEKIEPH0t5fLXD7CYGtA0YSdgzrb2rlQF1Y7Hs1bgMO27u0aSaADRSBVkNmRlcCKbCMwmjgZdnVcTaBtSi+wPT07B0MFmBeIa5lMYaiYlVJDQ6i37C3iCTU9dJceAB7978c/EDGQVDIw98jpVhSs/dz8XEu1/q+RcTSQ7WeGzSNjAVCIy1brOXLCXCDtlnbQFlBrSPK59rnxc+3/vyxzeLRUf3hEkpUQNTB7HCzmZ0OQL0dD8HMdQZCfa0kEeZa0HcwBbwE8QcaJJNUbGzNNY3Nbe2dXdw9gJZhjHn5ZrFGfJRaMtZVXVZTwWk6dUk6dVs6e487gGXdWOXNGOX1aOXVKOXECVMkZp9zJk+6JE+6xY+6RI/zhw8rBg8qBA8r+/e6+fe7evbC7p7Kzs7yjI7+9Pb+tLa+1Na+lJbe5OaepKbuxMauhIaO+Pq22Nq26OqWyMrmyMrGiIqG8PK6sLLa0NKa4OLqoKKqwMLKgIDw/PywvLzQ3NyQnJzg7Oyg7OzAzMyAjwz89XZmWpkxNVaakKJOTlUlJyoQEZXy8Mi5OGRurjIlRRkcrIyOVERHK8HBlWJgyNFQZEqIMDlaGhCiDgpSBgYqAAIW/v8LPT+HrK/fxkXt7y728ZJ6eMk9PmYeHzN1d5uYmc3WVubjInJ1lTk4yR0eZg4PM3l5mZyeztZXZ2EitrcVWVmJLS7GFhcjcXGRmJjI1FZmYiIyNRUZGIkNDkaGhyMBAZGAgMjAQ6euL9PRE2toiLS2RpqZIQ0OkpibS0BCpq4vU1UVqaiJVVZGKikhZWaSkJFJUFCkoiOTlRbKyIpmZkfR0UVqaKCVFlJwsSkoSJSaKEhJE8fGiuDhRbKwoJkYUHS2KihJFRooiIkTh4aKwMFFoqCgkRBQcLAoKEgUGigICRP7+Ij8/ka+vyMdH5O0t8vISJSeLPvwQ3XwJAPwvmQIAOFvyFwCcbwXlAFzI9wQA/Ju8BYBXyZ8B4H7JVwC4t+QXCNKWfUjqOvZIGnpOkdT1XSBpGHhE0jT0iqR5GEjaFnUsbFvJEKEtASbtAYC0bQdJ0y6QtO0CSdueByQth5+QtJ3EkfadjWXbDvNDFGMc0T+YlgvJKrHmH3LvDSjLxEX+QXGWQmzOLfMbDsgT7MR3ZJQKYYsn0BXuMeccxeKYj5qGXJaV3VQvF6LlQjHGEf0D03IhsapYy38o925AuZIvVf6D4iyXgM25ycxvOIryCezEd2RIhWCLnoBWwT2sc46F5WLZR01DrpVRZeX69vL6hvtA2+QjpchRooU2dOh1c6rXtWbT3FzXNjfvCgA=') format('woff2');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+  content: "\e6b8";
+}
+
+.icon-user:before {
+  content: "\e7ae";
+}
+
+.icon-news:before {
+  content: "\e7f5";
+}
+
+.icon-search:before {
+  content: "\e82e";
+}
+
+.icon-favorite:before {
+  content: "\e7ce";
+}
+
+.icon-medicine:before {
+  content: "\e6f5";
+}
+
+.icon-technique:before {
+  content: "\e600";
+}
+
+.icon-external:before {
+  content: "\e634";
+} 

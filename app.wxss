@@ -1,10 +1,39 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
+@import "./utils/iconfont.wxss";
+
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
   box-sizing: border-box;
-} 
+  background-color: #f5f9f6;
+}
+
+/* 全局按钮样式 */
+button {
+  background-color: #89c79e;
+  color: white;
+  border-radius: 10px;
+  font-weight: normal;
+  padding: 8px 16px;
+}
+
+button::after {
+  border: none;
+}
+
+/* 全局文本样式 */
+text {
+  color: #333;
+}
+
+/* 主题颜色类 */
+.primary-color {
+  color: #1f6b3b;
+}
+
+.primary-bg {
+  background-color: #89c79e;
+}
+
+.secondary-bg {
+  background-color: #f0f7f2;
+}

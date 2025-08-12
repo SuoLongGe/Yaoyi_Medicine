@@ -1,0 +1,158 @@
+/* 页面整体容器 */
+.page-container {
+  margin-top: 0px;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 15px;
+  background-color: #f5f9f6;
+  padding-bottom: 70px;
+}
+
+.header {
+  width: 92%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.search-box {
+  flex-grow: 1;
+  height: 45px;
+  font-size: 16px;
+  text-align: left;
+  padding-left: 15px;
+  border: none;
+  background-color: white;
+  border-radius: 25px;
+  line-height: 45px;
+  color: #666;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 技法列表 */
+.herb-list {
+  width: 94%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 5px 0;
+}
+
+/* 单个技法项 */
+.herb-item1 {
+  background-color: #f0f7f2;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  transition: background-color 0.3s;
+}
+
+.herb-item1:active {
+  background-color: #e6f2e9;
+}
+
+.herb-item {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  transition: background-color 0.3s;
+}
+
+.herb-item:active {
+  background-color: #f0f7f2;
+}
+
+.herb-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.herb-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1f6b3b;
+}
+
+.herb-prescription {
+  padding-top: 8px;
+  font-size: 16px;
+  color: #666;
+}
+
+.herb-prescription-item {
+  color: #1f6b3b;
+  display: inline-block;
+}
+
+.comma {
+  display: inline-block;
+}
+
+.clickable {
+  color: #1f6b3b;
+  text-decoration: underline;
+}
+
+/* 分割线 */
+.divider {
+  width: 92%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 0 auto;
+}
+
+/* 固定底部导航栏样式 */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  border-top: 1px solid #eee;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  padding: 5px 0;
+}
+
+/* 每个 tab 项样式 */
+.tab-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.tab-item .iconfont {
+  font-size: 20px;
+  color: #666;
+}
+
+.tab-item text {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.tab-item.active .iconfont,
+.tab-item.active text {
+  color: #1f6b3b;
+  font-weight: bold;
+}

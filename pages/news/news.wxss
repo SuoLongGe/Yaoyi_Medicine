@@ -1,14 +1,79 @@
 /* pages/news/news.wxss */
 .news-list {
-  width: 100%;
-  margin-top: 115px;
+  width: 94%;
+  margin: 15px auto;
+  padding-bottom: 70px;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
 .news-item {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.3s;
 }
-                                                                
+
+.news-item:active {
+  background-color: #f0f7f2;
+}
+
+.news-title {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
 .news-time {
   font-size: 14px;
+  color: #999;
+  margin-top: 8px;
+}
+
+/* 固定底部导航栏样式 */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  border-top: 1px solid #eee;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  padding: 5px 0;
+}
+
+/* 每个 tab 项样式 */
+.tab-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.tab-item .iconfont {
+  font-size: 20px;
   color: #666;
+}
+
+.tab-item text {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.tab-item.active .iconfont,
+.tab-item.active text {
+  color: #1f6b3b;
+  font-weight: bold;
+}
+
+/* 页面容器 */
+page {
+  background-color: #f5f9f6;
 }

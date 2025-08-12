@@ -5,13 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    herbList: [
-      { id: 1, name: "草药 1", img: "/images/herb1.png" },
-      { id: 2, name: "草药 2", img: "/images/herb2.png" },
-      { id: 3, name: "草药 3", img: "/images/herb3.png" },
-      { id: 4, name: "草药 4", img: "/images/herb4.png" },
-      { id: 5, name: "草药 5", img: "/images/herb5.png" },
-    ]
+
   },
 
   /**
@@ -19,19 +13,6 @@ Page({
    */
   onLoad(options) {
 
-  },
-
-  //跳转到药方详情界面
-  goToHerbDetail(event) {
-    const herbId = event.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: `/pages/preDetail/preDetail?id=${herbId}`
-    });
-  },
-  
-  // 返回上一页
-  goBack() {
-    wx.navigateBack();
   },
 
   /**
